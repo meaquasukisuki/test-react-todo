@@ -30,30 +30,19 @@ pipeline {
   }
   agent any
   stages {
-    // stage('Cloning our Git') {
-    //   steps {
-    //     git 'https://github.com/meaquasukisuki/test-react-todo.git'
-    //   }
-    // }
     stage('Building our image') {
       steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
+        echo 'Building....'
       }
     }
     stage('Deploy our image') {
       steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
+        echo 'Deploying....'
       }
     }
     stage('Cleaning up') {
       steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
+        echo 'finishing....'
       }
     }
   }
