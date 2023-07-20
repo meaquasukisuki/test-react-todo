@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/109053279/178185429-8de77574-cc2f-429f
 
 
 image:
-docker build -t frontend .  
+docker build -t meameasuki/test-react-todo-frontend:1.0 .  
 
 run container:
-docker run --name todo -dp 8000:80 frontend
+docker run --name todo -dp 8000:80 meameasuki/test-react-todo-frontend:1.0
