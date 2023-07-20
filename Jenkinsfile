@@ -30,11 +30,11 @@ pipeline {
   }
   agent any
   stages {
-    stage('Cloning our Git') {
-      steps {
-        git 'https://github.com/meaquasukisuki/test-react-todo.git'
-      }
-    }
+    // stage('Cloning our Git') {
+    //   steps {
+    //     git 'https://github.com/meaquasukisuki/test-react-todo.git'
+    //   }
+    // }
     stage('Building our image') {
       steps{
         script {
