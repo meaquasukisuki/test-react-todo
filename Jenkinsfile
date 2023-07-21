@@ -28,9 +28,7 @@ pipeline {
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
-  agent {
-    dockerfile true
-  }
+  agent any
   stages {
     stage('docker build') {
       steps{
