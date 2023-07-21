@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('docker build') {
       steps{
-        sh "docker version"
+        sh "sudo docker version"
         // script {
         //   TODO_IMAGE_BUILD = sh (
         //     script: 'docker build -t meameasuki/test-react-todo-frontend:1.0 .',
