@@ -28,22 +28,30 @@ pipeline {
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
-  agent any
+  agent {
+    dockerfile true
+  }
   stages {
-    stage('Building our image') {
+    stage('docker build') {
       steps{
-        echo 'Building....'
+        script {
+          TODO_IMAGE_BUILD = sh (
+            script: 'sudo docker build -t meameasuki/test-react-todo-frontend:1.0 .',
+            returnStdout: true
+          ).trim()
+          echo "docker build res: ${TODO_IMAGE_BUILD}"
+        }
       }
     }
-    stage('Deploy our image') {
-      steps{
-        echo 'Deploying....'
-      }
-    }
-    stage('Cleaning up') {
-      steps{
-        echo 'finishing....'
-      }
-    }
+    // stage('Deploy our image') {
+    //   steps{
+    //     echo 'Deploying....'
+    //   }
+    // }
+    // stage('Cleaning up') {
+    //   steps{
+    //     echo 'finishing....'
+    //   }
+    // }
   }
 }
