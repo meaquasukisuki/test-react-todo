@@ -32,13 +32,14 @@ pipeline {
   stages {
     stage('docker build') {
       steps{
-        script {
-          TODO_IMAGE_BUILD = sh (
-            script: 'docker build -t meameasuki/test-react-todo-frontend:1.0 .',
-            returnStdout: true
-          ).trim()
-          echo "docker build res: ${TODO_IMAGE_BUILD}"
-        }
+        sh "docker version"
+        // script {
+        //   TODO_IMAGE_BUILD = sh (
+        //     script: 'docker build -t meameasuki/test-react-todo-frontend:1.0 .',
+        //     returnStdout: true
+        //   ).trim()
+        //   echo "docker build res: ${TODO_IMAGE_BUILD}"
+        // }
       }
     }
     // stage('Deploy our image') {
