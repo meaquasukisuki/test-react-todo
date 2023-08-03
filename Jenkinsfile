@@ -6,7 +6,7 @@ pipeline {
     DOCKERHUB_CREDS = credentials('docker')
   }
 
-  agent { dockerfile true }
+  agent any
   stages {
     stage('clone git') {
       when {
@@ -21,9 +21,11 @@ pipeline {
         branch 'develop'
       }
       steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-        }
+        sh 'docker ps'
+        // script {
+          // docker ps
+          // dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+        // }
       }
     }
     stage('Push Image to DockerHub') { 
