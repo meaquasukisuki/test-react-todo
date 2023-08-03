@@ -21,10 +21,8 @@ pipeline {
         branch 'develop'
       }
       steps{
-        // sh 'docker ps'
         script {
-          docker ps
-          // dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+          dockerImage = docker.build(registry + ":$BUILD_NUMBER") 
         }
       }
     }
@@ -36,6 +34,7 @@ pipeline {
         script {
           docker.withRegistry('https://index.docker.io/v1/', registryCredential) {
             dockerImage.push()
+            dockerImage.push('latest')
           }
         }
       }
