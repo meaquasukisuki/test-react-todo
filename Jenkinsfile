@@ -6,7 +6,7 @@ pipeline {
     DOCKERHUB_CREDS = credentials('docker')
   }
 
-  agent any
+  agent { dockerfile true }
   stages {
     stage('clone git') {
       when {
