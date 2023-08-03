@@ -21,11 +21,11 @@ pipeline {
         branch 'develop'
       }
       steps{
-        sh 'docker ps'
-        // script {
-          // docker ps
+        // sh 'docker ps'
+        script {
+          docker ps
           // dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-        // }
+        }
       }
     }
     stage('Push Image to DockerHub') { 
